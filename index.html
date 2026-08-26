@@ -61,74 +61,106 @@
             background-size: 50px 50px;
         }
         
-        /* Animacijos */
+        /* MODERN ANIMATIONS */
         @keyframes slideInDown {
             from {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(-50px) rotateX(45deg);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) rotateX(0deg);
             }
         }
         
         @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(50px) rotateX(-45deg);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) rotateX(0deg);
             }
         }
         
         @keyframes slideInLeft {
             from {
                 opacity: 0;
-                transform: translateX(-50px);
+                transform: translateX(-50px) rotateY(45deg);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateX(0) rotateY(0deg);
             }
         }
         
-        @keyframes subtleGlow {
+        @keyframes floatY {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+        
+        @keyframes floatX {
+            0%, 100% {
+                transform: translateX(0px);
+            }
+            25% {
+                transform: translateX(-5px);
+            }
+            75% {
+                transform: translateX(5px);
+            }
+        }
+        
+        @keyframes glowPulse {
             0%, 100% {
                 text-shadow: 
-                    0 0 5px #4ecca3,
-                    0 0 10px #4ecca3;
+                    0 0 10px #4ecca3,
+                    0 0 20px #4ecca3;
                 color: #4ecca3;
             }
             50% {
                 text-shadow: 
-                    0 0 8px #4ecca3,
-                    0 0 12px #5cb85c;
+                    0 0 20px #4ecca3,
+                    0 0 35px #5cb85c;
                 color: #5cb85c;
             }
         }
         
-        @keyframes tinyPulse {
+        @keyframes boxGlow {
             0%, 100% {
-                text-shadow: 
-                    0 0 5px #4ecca3,
-                    0 0 10px #4ecca3;
+                box-shadow: 
+                    0 0 20px rgba(78, 204, 163, 0.3),
+                    0 0 40px rgba(78, 204, 163, 0.15),
+                    inset 0 0 20px rgba(78, 204, 163, 0.1);
             }
             50% {
-                text-shadow: 
-                    0 0 8px #4ecca3,
-                    0 0 15px #5cb85c;
+                box-shadow: 
+                    0 0 40px rgba(78, 204, 163, 0.5),
+                    0 0 60px rgba(92, 184, 92, 0.25),
+                    inset 0 0 30px rgba(78, 204, 163, 0.2);
             }
         }
         
-        @keyframes slowPulse {
+        @keyframes shimmer {
             0%, 100% {
-                transform: scale(1);
+                background-position: 200% center;
             }
             50% {
-                transform: scale(1.01);
+                background-position: -200% center;
+            }
+        }
+        
+        @keyframes hoverGlow {
+            0%, 100% {
+                filter: brightness(1) drop-shadow(0 0 8px rgba(78, 204, 163, 0.3));
+            }
+            50% {
+                filter: brightness(1.1) drop-shadow(0 0 15px rgba(78, 204, 163, 0.6));
             }
         }
         
@@ -160,14 +192,16 @@
             }
         }
         
-        @keyframes floatIn {
-            from {
+        @keyframes bounceIn {
+            0% {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: scale(0.3);
             }
-            to {
+            50% {
                 opacity: 1;
-                transform: translateY(0);
+            }
+            100% {
+                transform: scale(1);
             }
         }
         
@@ -190,6 +224,7 @@
             opacity: 0.8;
             animation: particleFloat 3s ease-out forwards;
             box-shadow: 0 0 10px #4ecca3;
+            border-radius: 50%;
         }
         
         .particle:nth-child(odd) {
@@ -209,7 +244,7 @@
             max-width: 1200px;
         }
         
-        /* Left section - Title + Info + Minecraft + Discord */
+        /* Left section */
         .left-section {
             flex: 0 0 480px;
             display: flex;
@@ -229,23 +264,40 @@
             font-size: 4.2em;
             margin-bottom: 0px;
             color: #4ecca3;
-            animation: subtleGlow 3s ease-in-out infinite;
+            animation: glowPulse 3s ease-in-out infinite, floatY 4s ease-in-out infinite;
             letter-spacing: 2px;
-            filter: drop-shadow(3px 3px 0px rgba(78, 204, 163, 0.3));
+            filter: drop-shadow(5px 5px 15px rgba(78, 204, 163, 0.4));
             line-height: 1;
             font-weight: 700;
+            display: inline-block;
         }
         
-        /* Info Box */
+        /* MODERN INFO BOX */
         .info-box {
-            background: linear-gradient(135deg, rgba(78, 204, 163, 0.1) 0%, rgba(92, 184, 92, 0.08) 100%);
-            border: 3px solid #4ecca3;
-            border-radius: 0px;
+            background: linear-gradient(135deg, rgba(78, 204, 163, 0.15) 0%, rgba(92, 184, 92, 0.08) 100%);
+            border: 2px solid rgba(78, 204, 163, 0.4);
+            border-radius: 12px;
             padding: 26px;
-            animation: slideInUp 1.2s ease-out;
+            animation: slideInUp 1.2s ease-out, boxGlow 4s ease-in-out infinite 0.3s;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px) brightness(1.1);
+            box-shadow: 
+                0 8px 32px rgba(78, 204, 163, 0.2),
+                inset 0 0 20px rgba(78, 204, 163, 0.1);
+            transition: all 0.3s ease-out;
+        }
+        
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(78, 204, 163, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+            pointer-events: none;
         }
         
         .info-box::after {
@@ -265,13 +317,21 @@
             pointer-events: none;
         }
         
+        .info-box:hover {
+            border-color: rgba(92, 184, 92, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 
+                0 12px 40px rgba(78, 204, 163, 0.3),
+                inset 0 0 25px rgba(78, 204, 163, 0.15);
+        }
+        
         .info-box p {
             margin: 11px 0;
             font-size: 0.95em;
             line-height: 1.7;
             position: relative;
             z-index: 1;
-            animation: floatIn 1.3s ease-out;
+            animation: bounceIn 1.3s ease-out;
         }
         
         .coming-soon {
@@ -280,54 +340,65 @@
             color: #ffd700;
             margin: 11px 0;
             font-weight: 700;
-            animation: slowPulse 2s ease-in-out infinite;
+            animation: floatX 3s ease-in-out infinite;
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 
-                0 0 8px rgba(255, 215, 0, 0.3),
-                2px 2px 0px rgba(255, 215, 0, 0.15);
+                0 0 10px rgba(255, 215, 0, 0.5),
+                0 0 20px rgba(255, 215, 0, 0.2);
         }
         
-        /* Minecraft Server Box */
+        /* MODERN MINECRAFT BOX */
         .minecraft-box {
-            background: linear-gradient(135deg, rgba(22, 33, 62, 0.35) 0%, rgba(26, 26, 46, 0.35) 100%);
-            border: 4px solid #4ecca3;
-            border-radius: 0px;
+            background: linear-gradient(135deg, rgba(22, 33, 62, 0.4) 0%, rgba(26, 26, 46, 0.4) 100%);
+            border: 2px solid rgba(78, 204, 163, 0.5);
+            border-radius: 12px;
             padding: 26px;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.6),
-                inset 0 0 30px rgba(78, 204, 163, 0.15);
-            animation: slideInUp 0.8s ease-out;
-            backdrop-filter: blur(8px);
+            animation: slideInUp 0.8s ease-out, boxGlow 4s ease-in-out infinite 0.1s;
+            backdrop-filter: blur(15px) brightness(1.15);
             position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 12px 40px rgba(78, 204, 163, 0.25),
+                inset 0 0 25px rgba(78, 204, 163, 0.12);
+            transition: all 0.3s ease-out;
         }
         
         .minecraft-box::before {
             content: '';
             position: absolute;
-            top: -4px;
-            left: -4px;
-            right: -4px;
-            bottom: -4px;
-            background: linear-gradient(45deg, #4ecca3, #5cb85c, #4ecca3, #5cb85c);
-            background-size: 200% 200%;
-            border-radius: 0px;
-            z-index: -1;
-            opacity: 0.2;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(78, 204, 163, 0.15) 50%, transparent 70%);
+            animation: shimmer 3.5s ease-in-out infinite;
+            pointer-events: none;
         }
         
         .minecraft-box::after {
             content: '';
             position: absolute;
-            top: -8px;
-            left: -8px;
-            right: -8px;
-            bottom: -8px;
-            background: linear-gradient(45deg, #4ecca3, #5cb85c, #4ecca3);
-            border-radius: 0px;
-            z-index: -2;
-            opacity: 0.1;
-            filter: blur(5px);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(78, 204, 163, 0.02) 0px,
+                rgba(78, 204, 163, 0.02) 2px,
+                transparent 2px,
+                transparent 4px
+            );
+            pointer-events: none;
+        }
+        
+        .minecraft-box:hover {
+            border-color: rgba(92, 184, 92, 0.8);
+            transform: translateY(-5px);
+            box-shadow: 
+                0 15px 50px rgba(78, 204, 163, 0.4),
+                inset 0 0 30px rgba(78, 204, 163, 0.2);
         }
         
         .minecraft-title {
@@ -335,27 +406,39 @@
             font-size: 1.85em;
             color: #ffd700;
             font-weight: 700;
-            animation: textReveal 1s ease-out both, tinyPulse 3s ease-in-out infinite 1s;
+            animation: textReveal 1s ease-out both, floatY 3.5s ease-in-out infinite 0.5s;
             letter-spacing: 2px;
             text-transform: uppercase;
             text-shadow: 
-                0 0 8px rgba(255, 215, 0, 0.4),
-                2px 2px 0px rgba(255, 215, 0, 0.15);
+                0 0 12px rgba(255, 215, 0, 0.5),
+                0 0 24px rgba(255, 215, 0, 0.25);
             margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
         }
         
-        /* IP Address Section */
+        /* MODERN IP SECTION */
         .ip-section {
-            background: linear-gradient(135deg, rgba(92, 184, 92, 0.15) 0%, rgba(78, 204, 163, 0.1) 100%);
-            border: 3px solid #5cb85c;
-            border-radius: 0px;
+            background: linear-gradient(135deg, rgba(92, 184, 92, 0.2) 0%, rgba(78, 204, 163, 0.15) 100%);
+            border: 2px solid rgba(92, 184, 92, 0.5);
+            border-radius: 10px;
             padding: 18px;
-            box-shadow: 
-                0 10px 40px rgba(92, 184, 92, 0.2),
-                inset 0 0 20px rgba(92, 184, 92, 0.1);
-            animation: slideInUp 1s ease-out;
+            animation: slideInUp 1s ease-out, boxGlow 4s ease-in-out infinite 0.2s;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(12px) brightness(1.1);
+            box-shadow: 
+                0 8px 32px rgba(92, 184, 92, 0.2),
+                inset 0 0 15px rgba(92, 184, 92, 0.1);
+            transition: all 0.3s ease-out;
+        }
+        
+        .ip-section:hover {
+            border-color: rgba(92, 184, 92, 0.7);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 10px 40px rgba(92, 184, 92, 0.3),
+                inset 0 0 20px rgba(92, 184, 92, 0.15);
         }
         
         .ip-section h2 {
@@ -365,8 +448,7 @@
             font-weight: 700;
             animation: slideInDown 0.6s ease-out;
             text-shadow: 
-                2px 2px 0px rgba(92, 184, 92, 0.25),
-                4px 4px 0px rgba(92, 184, 92, 0.1);
+                0 0 8px rgba(92, 184, 92, 0.4);
             position: relative;
             z-index: 1;
         }
@@ -377,9 +459,9 @@
         }
         
         .server-ip {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.3) 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%);
             padding: 15px 18px;
-            border-radius: 0px;
+            border-radius: 8px;
             font-family: 'Minecraftia', cursive;
             font-size: 1.25em;
             color: #4ecca3;
@@ -387,23 +469,24 @@
             margin: 9px 0;
             cursor: pointer;
             transition: all 0.3s ease-out;
-            border: 3px solid #4ecca3;
+            border: 2px solid rgba(78, 204, 163, 0.5);
             font-weight: 700;
             position: relative;
             letter-spacing: 2px;
             box-shadow: 
-                0 8px 25px rgba(78, 204, 163, 0.2),
-                inset 0 0 15px rgba(78, 204, 163, 0.08);
+                0 6px 20px rgba(78, 204, 163, 0.2),
+                inset 0 0 12px rgba(78, 204, 163, 0.08);
             animation: slideInUp 1.2s ease-out;
+            backdrop-filter: blur(8px);
         }
         
         .server-ip:hover {
-            background: linear-gradient(135deg, rgba(78, 204, 163, 0.2) 0%, rgba(92, 184, 92, 0.15) 100%);
+            background: linear-gradient(135deg, rgba(78, 204, 163, 0.15) 0%, rgba(92, 184, 92, 0.1) 100%);
             box-shadow: 
-                0 15px 40px rgba(78, 204, 163, 0.4),
-                inset 0 0 20px rgba(78, 204, 163, 0.15);
-            transform: scale(1.02);
-            border-color: #5cb85c;
+                0 10px 35px rgba(78, 204, 163, 0.4),
+                inset 0 0 18px rgba(78, 204, 163, 0.15);
+            transform: scale(1.03) translateY(-2px);
+            border-color: rgba(92, 184, 92, 0.7);
         }
         
         .server-ip:active {
@@ -412,10 +495,10 @@
         
         .copy-hint {
             font-size: 0.76em;
-            color: #aaa;
+            color: #bbb;
             margin-top: 6px;
             font-weight: 600;
-            animation: floatIn 1.2s ease-out 0.2s both;
+            animation: bounceIn 1.2s ease-out 0.2s both;
             letter-spacing: 0.5px;
             position: relative;
             z-index: 1;
@@ -425,19 +508,42 @@
         .server-info {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 7px;
+            gap: 10px;
             margin-top: 9px;
         }
         
         .info-item {
-            background: linear-gradient(135deg, rgba(78, 204, 163, 0.1) 0%, rgba(92, 184, 92, 0.08) 100%);
-            border: 2px solid #4ecca3;
-            border-radius: 0px;
-            padding: 8px;
-            animation: floatIn 1.3s ease-out;
+            background: linear-gradient(135deg, rgba(78, 204, 163, 0.15) 0%, rgba(92, 184, 92, 0.1) 100%);
+            border: 2px solid rgba(78, 204, 163, 0.4);
+            border-radius: 8px;
+            padding: 12px;
+            animation: bounceIn 1.5s ease-out;
             position: relative;
             z-index: 1;
             text-align: center;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 12px rgba(78, 204, 163, 0.15);
+            transition: all 0.3s ease-out;
+        }
+        
+        .info-item:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+        
+        .info-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        
+        .info-item:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+        
+        .info-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(92, 184, 92, 0.6);
+            box-shadow: 
+                0 8px 20px rgba(78, 204, 163, 0.25),
+                inset 0 0 10px rgba(78, 204, 163, 0.1);
         }
         
         .info-item-label {
@@ -448,6 +554,7 @@
             letter-spacing: 0.5px;
             margin-bottom: 4px;
             animation: slideInDown 0.6s ease-out;
+            text-shadow: 0 0 5px rgba(92, 184, 92, 0.3);
         }
         
         .info-item-value {
@@ -456,9 +563,10 @@
             color: #4ecca3;
             font-weight: 700;
             animation: slideInUp 0.8s ease-out;
+            text-shadow: 0 0 8px rgba(78, 204, 163, 0.3);
         }
         
-        /* Discord Button */
+        /* MODERN DISCORD BUTTON */
         .discord-btn {
             display: inline-flex;
             align-items: center;
@@ -467,30 +575,33 @@
             background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
             color: white;
             text-decoration: none;
-            border-radius: 0px;
+            border-radius: 8px;
             font-family: 'Minecraftia', cursive;
             font-weight: 700;
             transition: all 0.3s ease-out;
             font-size: 0.95em;
-            border: 3px solid #5865F2;
+            border: 2px solid rgba(88, 101, 242, 0.6);
             cursor: pointer;
             position: relative;
             overflow: hidden;
             text-transform: uppercase;
             letter-spacing: 2px;
-            animation: slideInUp 1.3s ease-out;
-            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
+            animation: slideInUp 1.3s ease-out, boxGlow 4s ease-in-out infinite 0.4s;
+            box-shadow: 
+                0 10px 30px rgba(88, 101, 242, 0.3),
+                inset 0 0 15px rgba(88, 101, 242, 0.1);
             width: 100%;
             justify-content: center;
+            backdrop-filter: blur(8px);
         }
         
         .discord-btn:hover {
             background: linear-gradient(135deg, #4752C4 0%, #5865F2 100%);
             box-shadow: 
-                0 20px 45px rgba(88, 101, 242, 0.5),
-                inset 0 0 15px rgba(88, 101, 242, 0.2);
-            transform: scale(1.05);
-            border-color: #fff;
+                0 15px 45px rgba(88, 101, 242, 0.5),
+                inset 0 0 20px rgba(88, 101, 242, 0.25);
+            transform: scale(1.05) translateY(-2px);
+            border-color: rgba(88, 101, 242, 0.9);
         }
         
         .discord-btn:active {
@@ -503,6 +614,7 @@
             width: 20px;
             height: 20px;
             z-index: 1;
+            animation: floatY 3s ease-in-out infinite;
         }
         
         /* Right side spacer */
@@ -589,7 +701,7 @@
             </a>
         </div>
         
-        <!-- Right spacer (for girl image) -->
+        <!-- Right spacer -->
         <div class="right-spacer"></div>
     </div>
     
