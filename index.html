@@ -208,12 +208,13 @@
             max-width: 1400px;
         }
         
-        /* Left section - Title and Subtitle */
+        /* Left section - Title, Subtitle, IP */
         .left-section {
-            flex: 0 0 400px;
+            flex: 0 0 450px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
+            gap: 30px;
             animation: slideInDown 0.8s ease-out;
         }
         
@@ -224,7 +225,7 @@
         .title-wrapper {
             perspective: 1000px;
             animation: slideInDown 1s ease-out;
-            margin-bottom: 30px;
+            margin-bottom: 0px;
         }
         
         h1 {
@@ -240,7 +241,7 @@
         
         .subtitle-wrapper {
             position: relative;
-            margin-top: 20px;
+            margin-top: 0px;
         }
         
         .subtitle {
@@ -256,78 +257,12 @@
                 2px 2px 0px rgba(255, 215, 0, 0.15);
         }
         
-        /* Right section - Info Box */
-        .right-section {
-            flex: 0 0 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            animation: slideInRight 0.8s ease-out;
-        }
-        
-        .container {
-            text-align: center;
-            padding: 50px 30px;
-            background: linear-gradient(135deg, rgba(22, 33, 62, 0.35) 0%, rgba(26, 26, 46, 0.35) 100%);
-            border: 4px solid #4ecca3;
-            border-radius: 0px;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.6),
-                inset 0 0 30px rgba(78, 204, 163, 0.15);
-            position: relative;
-            z-index: 1;
-            animation: slideInRight 0.8s ease-out;
-            backdrop-filter: blur(8px);
-        }
-        
-        .container::before {
-            content: '';
-            position: absolute;
-            top: -4px;
-            left: -4px;
-            right: -4px;
-            bottom: -4px;
-            background: linear-gradient(45deg, #4ecca3, #5cb85c, #4ecca3, #5cb85c);
-            background-size: 200% 200%;
-            border-radius: 0px;
-            z-index: -1;
-            opacity: 0.2;
-        }
-        
-        .container::after {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: -8px;
-            right: -8px;
-            bottom: -8px;
-            background: linear-gradient(45deg, #4ecca3, #5cb85c, #4ecca3);
-            border-radius: 0px;
-            z-index: -2;
-            opacity: 0.1;
-            filter: blur(5px);
-        }
-        
-        .section-title {
-            font-family: 'Minecraftia', cursive;
-            font-size: 2.2em;
-            color: #5cb85c;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: slideInDown 0.8s ease-out;
-            text-shadow: 
-                3px 3px 0px rgba(78, 204, 163, 0.25),
-                6px 6px 0px rgba(92, 184, 92, 0.15);
-        }
-        
         /* IP Address Section */
         .ip-section {
             background: linear-gradient(135deg, rgba(92, 184, 92, 0.15) 0%, rgba(78, 204, 163, 0.1) 100%);
             border: 3px solid #5cb85c;
             border-radius: 0px;
             padding: 40px;
-            margin: 0;
             box-shadow: 
                 0 10px 40px rgba(92, 184, 92, 0.2),
                 inset 0 0 20px rgba(92, 184, 92, 0.1);
@@ -399,13 +334,65 @@
             z-index: 1;
         }
         
+        /* Right section - Info Box */
+        .right-section {
+            flex: 0 0 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 50px 30px;
+            background: linear-gradient(135deg, rgba(22, 33, 62, 0.35) 0%, rgba(26, 26, 46, 0.35) 100%);
+            border: 4px solid #4ecca3;
+            border-radius: 0px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.6),
+                inset 0 0 30px rgba(78, 204, 163, 0.15);
+            position: relative;
+            z-index: 1;
+            animation: slideInRight 0.8s ease-out;
+            backdrop-filter: blur(8px);
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, #4ecca3, #5cb85c, #4ecca3, #5cb85c);
+            background-size: 200% 200%;
+            border-radius: 0px;
+            z-index: -1;
+            opacity: 0.2;
+        }
+        
+        .container::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            background: linear-gradient(45deg, #4ecca3, #5cb85c, #4ecca3);
+            border-radius: 0px;
+            z-index: -2;
+            opacity: 0.1;
+            filter: blur(5px);
+        }
+        
         /* Info Box */
         .info-box {
             background: linear-gradient(135deg, rgba(78, 204, 163, 0.1) 0%, rgba(92, 184, 92, 0.08) 100%);
             border: 3px solid #4ecca3;
             border-radius: 0px;
             padding: 35px;
-            margin: 30px 0 0 0;
+            margin: 0;
             animation: slideInUp 1.2s ease-out;
             position: relative;
             overflow: hidden;
@@ -527,10 +514,6 @@
                 font-size: 1.3em;
             }
             
-            .section-title {
-                font-size: 1.6em;
-            }
-            
             .container {
                 padding: 30px 20px;
                 border-width: 3px;
@@ -568,21 +551,21 @@
                     <div class="subtitle">Minecraft Serveris</div>
                 </div>
             </div>
+            
+            <div class="ip-section">
+                <h2 class="ip-section__title" style="font-family: 'Minecraftia', cursive; font-size: 1.8em; color: #5cb85c; margin-bottom: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 0px rgba(92, 184, 92, 0.25), 4px 4px 0px rgba(92, 184, 92, 0.1);">📍 Serverio Adresas</h2>
+                <div class="server-ip-container">
+                    <div class="server-ip" onclick="copyToClipboard('mc.nprincas.lt')">
+                        mc.nprincas.lt
+                    </div>
+                    <p class="copy-hint">💡 Spausk norėdamas nukopijuoti adresą</p>
+                </div>
+            </div>
         </div>
         
         <!-- RIGHT SECTION -->
         <div class="right-section">
             <div class="container">
-                <div class="ip-section">
-                    <h2 class="section-title">📍 Serverio Adresas</h2>
-                    <div class="server-ip-container">
-                        <div class="server-ip" onclick="copyToClipboard('mc.nprincas.lt')">
-                            mc.nprincas.lt
-                        </div>
-                        <p class="copy-hint">💡 Spausk norėdamas nukopijuoti adresą</p>
-                    </div>
-                </div>
-                
                 <div class="info-box">
                     <p class="coming-soon">🚀 Serveris kurimo stadyjoje...</p>
                     <p>Kuriame nuostabią Minecraft serverio patirtį su draugais ir bendruomene.</p>
