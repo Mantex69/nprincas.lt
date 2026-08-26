@@ -41,7 +41,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(15, 15, 30, 0.75) 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(15, 15, 30, 0.4) 100%);
             pointer-events: none;
             z-index: -1;
         }
@@ -56,8 +56,8 @@
             pointer-events: none;
             z-index: -2;
             background-image: 
-                linear-gradient(0deg, transparent 24%, rgba(78, 204, 163, 0.02) 25%, rgba(78, 204, 163, 0.02) 26%, transparent 27%, transparent 74%, rgba(78, 204, 163, 0.02) 75%, rgba(78, 204, 163, 0.02) 76%, transparent 77%, transparent),
-                linear-gradient(90deg, transparent 24%, rgba(78, 204, 163, 0.02) 25%, rgba(78, 204, 163, 0.02) 26%, transparent 27%, transparent 74%, rgba(78, 204, 163, 0.02) 75%, rgba(78, 204, 163, 0.02) 76%, transparent 77%, transparent);
+                linear-gradient(0deg, transparent 24%, rgba(78, 204, 163, 0.01) 25%, rgba(78, 204, 163, 0.01) 26%, transparent 27%, transparent 74%, rgba(78, 204, 163, 0.01) 75%, rgba(78, 204, 163, 0.01) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(78, 204, 163, 0.01) 25%, rgba(78, 204, 163, 0.01) 26%, transparent 27%, transparent 74%, rgba(78, 204, 163, 0.01) 75%, rgba(78, 204, 163, 0.01) 76%, transparent 77%, transparent);
             background-size: 50px 50px;
         }
         
@@ -84,21 +84,17 @@
             }
         }
         
-        @keyframes neonGlow {
+        @keyframes subtleGlow {
             0%, 100% {
                 text-shadow: 
-                    0 0 10px #4ecca3,
-                    0 0 20px #4ecca3,
-                    0 0 30px #5cb85c,
-                    2px 2px 0px rgba(78, 204, 163, 0.4);
+                    0 0 5px #4ecca3,
+                    0 0 10px #4ecca3;
                 color: #4ecca3;
             }
             50% {
                 text-shadow: 
-                    0 0 20px #4ecca3,
-                    0 0 40px #5cb85c,
-                    0 0 60px #4ecca3,
-                    2px 2px 0px rgba(78, 204, 163, 0.6);
+                    0 0 10px #4ecca3,
+                    0 0 15px #5cb85c;
                 color: #5cb85c;
             }
         }
@@ -160,15 +156,6 @@
             }
         }
         
-        @keyframes shineEffect {
-            0% {
-                background-position: -1000px 0;
-            }
-            100% {
-                background-position: 1000px 0;
-            }
-        }
-        
         /* Particle System */
         .particles {
             position: fixed;
@@ -198,12 +185,12 @@
         .container {
             text-align: center;
             padding: 50px 30px;
-            background: linear-gradient(135deg, rgba(22, 33, 62, 0.75) 0%, rgba(26, 26, 46, 0.75) 100%);
+            background: linear-gradient(135deg, rgba(22, 33, 62, 0.5) 0%, rgba(26, 26, 46, 0.5) 100%);
             border: 4px solid #4ecca3;
             border-radius: 0px;
             box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.8),
-                inset 0 0 30px rgba(78, 204, 163, 0.2);
+                0 20px 60px rgba(0, 0, 0, 0.6),
+                inset 0 0 30px rgba(78, 204, 163, 0.15);
             max-width: 800px;
             width: 100%;
             position: relative;
@@ -223,8 +210,7 @@
             background-size: 200% 200%;
             border-radius: 0px;
             z-index: -1;
-            opacity: 0.4;
-            animation: shineEffect 3s linear infinite;
+            opacity: 0.2;
         }
         
         .container::after {
@@ -237,32 +223,37 @@
             background: linear-gradient(45deg, #4ecca3, #5cb85c, #4ecca3);
             border-radius: 0px;
             z-index: -2;
-            opacity: 0.2;
+            opacity: 0.1;
             filter: blur(5px);
         }
         
         .title-wrapper {
             perspective: 1000px;
             animation: slideInDown 1s ease-out;
+            margin-bottom: 5px;
         }
         
         h1 {
             font-family: 'Minecraftia', cursive;
             font-size: 4.5em;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #4ecca3 0%, #5cb85c 50%, #4ecca3 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: neonGlow 3s ease-in-out infinite;
+            margin-bottom: 0px;
+            color: #4ecca3;
+            animation: subtleGlow 3s ease-in-out infinite;
             letter-spacing: 3px;
-            filter: drop-shadow(3px 3px 0px rgba(78, 204, 163, 0.4));
+            filter: drop-shadow(2px 2px 0px rgba(78, 204, 163, 0.2));
+        }
+        
+        .divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #4ecca3, #5cb85c, #4ecca3, transparent);
+            margin: 20px 0;
+            animation: slideInUp 0.8s ease-out 0.2s both;
         }
         
         .subtitle-wrapper {
             position: relative;
-            height: 60px;
-            margin-bottom: 40px;
+            margin-top: 20px;
+            margin-bottom: 30px;
         }
         
         .subtitle {
@@ -274,8 +265,8 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             text-shadow: 
-                0 0 10px rgba(255, 215, 0, 0.5),
-                2px 2px 0px rgba(255, 215, 0, 0.2);
+                0 0 8px rgba(255, 215, 0, 0.4),
+                2px 2px 0px rgba(255, 215, 0, 0.15);
         }
         
         .section-title {
@@ -287,40 +278,23 @@
             letter-spacing: 2px;
             animation: slideInDown 0.8s ease-out;
             text-shadow: 
-                3px 3px 0px rgba(78, 204, 163, 0.4),
-                6px 6px 0px rgba(92, 184, 92, 0.2);
+                3px 3px 0px rgba(78, 204, 163, 0.25),
+                6px 6px 0px rgba(92, 184, 92, 0.15);
         }
         
         /* IP Address Section */
         .ip-section {
-            background: linear-gradient(135deg, rgba(92, 184, 92, 0.2) 0%, rgba(78, 204, 163, 0.15) 100%);
+            background: linear-gradient(135deg, rgba(92, 184, 92, 0.15) 0%, rgba(78, 204, 163, 0.1) 100%);
             border: 3px solid #5cb85c;
             border-radius: 0px;
             padding: 40px;
             margin: 30px 0;
             box-shadow: 
-                0 10px 40px rgba(92, 184, 92, 0.3),
-                inset 0 0 30px rgba(92, 184, 92, 0.15);
+                0 10px 40px rgba(92, 184, 92, 0.2),
+                inset 0 0 20px rgba(92, 184, 92, 0.1);
             animation: slideInUp 1s ease-out;
             position: relative;
             overflow: hidden;
-        }
-        
-        .ip-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(92, 184, 92, 0.1) 10px,
-                rgba(92, 184, 92, 0.1) 20px
-            );
-            animation: shineEffect 4s linear infinite;
         }
         
         .ip-section h2 {
@@ -330,7 +304,7 @@
             font-weight: 700;
             animation: slideInDown 0.6s ease-out;
             text-shadow: 
-                2px 2px 0px rgba(92, 184, 92, 0.3),
+                2px 2px 0px rgba(92, 184, 92, 0.25),
                 4px 4px 0px rgba(92, 184, 92, 0.1);
             position: relative;
             z-index: 1;
@@ -342,7 +316,7 @@
         }
         
         .server-ip {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.3) 100%);
             padding: 25px 30px;
             border-radius: 0px;
             font-family: 'Minecraftia', cursive;
@@ -351,44 +325,27 @@
             word-break: break-all;
             margin: 20px 0;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s ease-out;
             border: 3px solid #4ecca3;
             font-weight: 700;
             position: relative;
             letter-spacing: 2px;
             box-shadow: 
-                0 8px 25px rgba(78, 204, 163, 0.3),
-                inset 0 0 20px rgba(78, 204, 163, 0.1);
-        }
-        
-        .server-ip::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(78, 204, 163, 0.4), transparent);
-            transition: left 0.5s;
-            z-index: 0;
-        }
-        
-        .server-ip:hover::before {
-            left: 100%;
+                0 8px 25px rgba(78, 204, 163, 0.2),
+                inset 0 0 15px rgba(78, 204, 163, 0.08);
         }
         
         .server-ip:hover {
-            background: linear-gradient(135deg, rgba(78, 204, 163, 0.3) 0%, rgba(92, 184, 92, 0.2) 100%);
+            background: linear-gradient(135deg, rgba(78, 204, 163, 0.2) 0%, rgba(92, 184, 92, 0.15) 100%);
             box-shadow: 
-                0 15px 50px rgba(78, 204, 163, 0.6),
-                inset 0 0 30px rgba(78, 204, 163, 0.3);
-            transform: translateY(-8px) scale(1.05);
-            animation: pulse 0.6s ease-out;
+                0 15px 40px rgba(78, 204, 163, 0.4),
+                inset 0 0 20px rgba(78, 204, 163, 0.15);
+            transform: translateY(-5px);
             border-color: #5cb85c;
         }
         
         .server-ip:active {
-            transform: translateY(-2px) scale(1.02);
+            transform: translateY(-2px);
         }
         
         .copy-hint {
@@ -404,7 +361,7 @@
         
         /* Info Box */
         .info-box {
-            background: linear-gradient(135deg, rgba(78, 204, 163, 0.15) 0%, rgba(92, 184, 92, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(78, 204, 163, 0.1) 0%, rgba(92, 184, 92, 0.08) 100%);
             border: 3px solid #4ecca3;
             border-radius: 0px;
             padding: 35px;
@@ -451,8 +408,8 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 
-                0 0 10px #ffd700,
-                2px 2px 0px rgba(255, 215, 0, 0.3);
+                0 0 8px rgba(255, 215, 0, 0.3),
+                2px 2px 0px rgba(255, 215, 0, 0.15);
         }
         
         .discord-btn {
@@ -467,7 +424,7 @@
             border-radius: 0px;
             font-family: 'Minecraftia', cursive;
             font-weight: 700;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s ease-out;
             font-size: 1.2em;
             border: 3px solid #5865F2;
             cursor: pointer;
@@ -476,37 +433,20 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             animation: slideInUp 1.3s ease-out;
-            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.4);
-        }
-        
-        .discord-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-            z-index: 0;
-        }
-        
-        .discord-btn:hover::before {
-            left: 100%;
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
         }
         
         .discord-btn:hover {
             background: linear-gradient(135deg, #4752C4 0%, #5865F2 100%);
             box-shadow: 
-                0 20px 50px rgba(88, 101, 242, 0.7),
-                inset 0 0 20px rgba(88, 101, 242, 0.3);
-            transform: translateY(-8px) scale(1.08);
+                0 20px 45px rgba(88, 101, 242, 0.5),
+                inset 0 0 15px rgba(88, 101, 242, 0.2);
+            transform: translateY(-6px);
             border-color: #fff;
-            text-shadow: 0 0 10px rgba(88, 101, 242, 0.5);
         }
         
         .discord-btn:active {
-            transform: translateY(-2px) scale(1.02);
+            transform: translateY(-2px);
         }
         
         .discord-btn svg {
@@ -571,6 +511,8 @@
             <h1>NPrinco Hata</h1>
         </div>
         
+        <div class="divider"></div>
+        
         <div class="subtitle-wrapper">
             <div class="subtitle">Minecraft Serveris</div>
         </div>
@@ -607,7 +549,7 @@
         // Optimized particle system
         function createParticles() {
             const container = document.getElementById('particles');
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 3; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
@@ -632,7 +574,7 @@
         let lastParticleTime = 0;
         document.addEventListener('mousemove', (e) => {
             const now = Date.now();
-            if (now - lastParticleTime > 100 && Math.random() > 0.8) {
+            if (now - lastParticleTime > 150 && Math.random() > 0.85) {
                 lastParticleTime = now;
                 const particle = document.createElement('div');
                 particle.className = 'particle';
@@ -641,7 +583,7 @@
                 particle.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
                 particle.style.width = (Math.random() * 4 + 2) + 'px';
                 particle.style.height = particle.style.width;
-                document.getElementById('particles').appendChild(particle);
+                container.appendChild(particle);
                 
                 setTimeout(() => {
                     particle.remove();
@@ -654,7 +596,8 @@
                 alert('✅ Serverio adresas nukopijuotas: ' + text);
                 
                 // Minimal particle explosion on copy
-                for (let i = 0; i < 5; i++) {
+                const container = document.getElementById('particles');
+                for (let i = 0; i < 3; i++) {
                     const particle = document.createElement('div');
                     particle.className = 'particle';
                     particle.style.left = '50%';
@@ -662,7 +605,7 @@
                     particle.style.animationDuration = (Math.random() * 1.5 + 1) + 's';
                     particle.style.width = (Math.random() * 6 + 3) + 'px';
                     particle.style.height = particle.style.width;
-                    document.getElementById('particles').appendChild(particle);
+                    container.appendChild(particle);
                     
                     setTimeout(() => {
                         particle.remove();
