@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NPrinco Hata - Minecraft Serveris</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Mantex69/nprincas.lt@main/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Minecraftia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,8 +14,12 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-image: url('https://cdn.jsdelivr.net/gh/Mantex69/nprincas.lt@main/background.png');
             background-size: cover;
             background-position: center;
@@ -25,6 +31,7 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            overflow-x: hidden;
         }
         
         body::before {
@@ -34,136 +41,378 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(26, 26, 46, 0.5) 100%);
             pointer-events: none;
             z-index: -1;
         }
         
+        /* Animacijos */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(78, 204, 163, 0.5), inset 0 0 20px rgba(78, 204, 163, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(78, 204, 163, 0.8), inset 0 0 30px rgba(78, 204, 163, 0.3);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes blockBreak {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                transform: scale(1.1) rotate(5deg);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+        
         .container {
             text-align: center;
-            padding: 40px 20px;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 10px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
-            max-width: 600px;
+            padding: 50px 30px;
+            background: linear-gradient(135deg, rgba(22, 33, 62, 0.95) 0%, rgba(26, 26, 46, 0.95) 100%);
+            border: 3px solid #4ecca3;
+            border-radius: 15px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.8),
+                inset 0 0 30px rgba(78, 204, 163, 0.15),
+                0 0 40px rgba(78, 204, 163, 0.3);
+            max-width: 700px;
             width: 100%;
             position: relative;
             z-index: 1;
+            animation: slideInDown 0.8s ease-out;
+            backdrop-filter: blur(10px);
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #4ecca3, #5cb85c, #4ecca3);
+            border-radius: 15px;
+            z-index: -1;
+            opacity: 0.3;
+            animation: glow 3s ease-in-out infinite;
         }
         
         h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            color: #4ecca3;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+            font-family: 'Minecraftia', cursive;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #4ecca3 0%, #5cb85c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 3px 3px 0px rgba(78, 204, 163, 0.3);
+            animation: slideInDown 1s ease-out;
+            letter-spacing: 2px;
         }
         
         .subtitle {
-            font-size: 1.2em;
+            font-size: 1.4em;
             color: #aaa;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            font-weight: 600;
+            animation: slideInDown 1.2s ease-out;
+            letter-spacing: 1px;
+        }
+        
+        .section-title {
+            font-family: 'Minecraftia', cursive;
+            font-size: 1.8em;
+            color: #5cb85c;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .minecraft-server {
-            background: linear-gradient(135deg, rgba(78, 204, 163, 0.2), rgba(92, 184, 92, 0.2));
+            background: linear-gradient(135deg, rgba(92, 184, 92, 0.15) 0%, rgba(78, 204, 163, 0.1) 100%);
             border: 2px solid #5cb85c;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 0 15px rgba(92, 184, 92, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 
+                0 8px 32px rgba(92, 184, 92, 0.2),
+                inset 0 0 20px rgba(92, 184, 92, 0.1);
+            animation: slideInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .minecraft-server::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(92, 184, 92, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .minecraft-server:hover::before {
+            left: 100%;
         }
         
         .minecraft-server h2 {
             color: #5cb85c;
-            font-size: 1.5em;
-            margin-bottom: 12px;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            animation: blockBreak 0.6s ease-out;
         }
         
         .server-ip {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 12px 16px;
-            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px 20px;
+            border-radius: 8px;
             font-family: 'Courier New', monospace;
-            font-size: 1.2em;
+            font-size: 1.3em;
             color: #4ecca3;
             word-break: break-all;
-            margin: 10px 0;
+            margin: 15px 0;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid #4ecca3;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid #4ecca3;
+            font-weight: 600;
+            position: relative;
         }
         
         .server-ip:hover {
-            background: rgba(78, 204, 163, 0.2);
-            box-shadow: 0 0 10px rgba(78, 204, 163, 0.5);
+            background: rgba(78, 204, 163, 0.25);
+            box-shadow: 
+                0 0 20px rgba(78, 204, 163, 0.6),
+                inset 0 0 20px rgba(78, 204, 163, 0.2);
+            transform: translateY(-3px) scale(1.02);
+            animation: pulse 0.6s ease-out;
+        }
+        
+        .server-ip:active {
+            transform: translateY(0) scale(0.98);
         }
         
         .copy-hint {
-            font-size: 0.85em;
+            font-size: 0.95em;
             color: #aaa;
-            margin-top: 8px;
+            margin-top: 10px;
+            font-weight: 500;
+            animation: slideInUp 1.4s ease-out;
         }
         
         .info-box {
-            background: rgba(78, 204, 163, 0.1);
+            background: linear-gradient(135deg, rgba(78, 204, 163, 0.12) 0%, rgba(92, 184, 92, 0.08) 100%);
             border: 2px solid #4ecca3;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            animation: slideInUp 1.2s ease-out;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+        
+        .info-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(78, 204, 163, 0.03) 0px,
+                rgba(78, 204, 163, 0.03) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
         }
         
         .info-box p {
-            margin: 10px 0;
+            margin: 12px 0;
             font-size: 1.1em;
-        }
-        
-        .label {
-            color: #4ecca3;
-            font-weight: bold;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
         }
         
         .coming-soon {
-            font-size: 1.3em;
+            font-size: 1.5em;
             color: #ffd700;
             margin: 20px 0;
+            font-weight: 700;
+            animation: float 3s ease-in-out infinite;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .discord-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: #5865F2;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 25px;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s ease;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             font-size: 1.1em;
+            border: 2px solid #5865F2;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: slideInUp 1.3s ease-out;
+        }
+        
+        .discord-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+            z-index: 0;
+        }
+        
+        .discord-btn:hover::before {
+            left: 100%;
         }
         
         .discord-btn:hover {
-            background: #4752C4;
+            background: linear-gradient(135deg, #4752C4 0%, #5865F2 100%);
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.5);
+            transform: translateY(-5px);
+            border-color: #fff;
+        }
+        
+        .discord-btn:active {
+            transform: translateY(-2px);
         }
         
         .discord-btn svg {
-            margin-right: 10px;
+            margin-right: 12px;
             vertical-align: middle;
+            width: 24px;
+            height: 24px;
+            animation: blockBreak 0.6s ease-out;
+            z-index: 1;
         }
         
         .footer {
-            margin-top: 30px;
-            font-size: 0.9em;
+            margin-top: 40px;
+            font-size: 1em;
             color: #888;
+            font-weight: 500;
+            animation: slideInUp 1.5s ease-out;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Minecraft block grid background effect */
+        .block-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+            background-image: 
+                linear-gradient(0deg, transparent 24%, rgba(78, 204, 163, 0.05) 25%, rgba(78, 204, 163, 0.05) 26%, transparent 27%, transparent 74%, rgba(78, 204, 163, 0.05) 75%, rgba(78, 204, 163, 0.05) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(78, 204, 163, 0.05) 25%, rgba(78, 204, 163, 0.05) 26%, transparent 27%, transparent 74%, rgba(78, 204, 163, 0.05) 75%, rgba(78, 204, 163, 0.05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .subtitle {
+                font-size: 1.1em;
+            }
+            
+            .container {
+                padding: 30px 20px;
+                border-width: 2px;
+            }
+            
+            .section-title {
+                font-size: 1.4em;
+            }
+            
+            .minecraft-server {
+                padding: 20px;
+            }
+            
+            .server-ip {
+                font-size: 1.1em;
+                padding: 12px 16px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="block-grid"></div>
+    
     <div class="container">
         <h1>🎮 NPrinco Hata</h1>
         <p class="subtitle">Minecraft Serveris</p>
         
         <div class="minecraft-server">
-            <h2>📍 Serverio Adresas</h2>
+            <h2 class="section-title">📍 Serverio Adresas</h2>
             <div class="server-ip" onclick="copyToClipboard('mc.nprincas.lt')">
                 mc.nprincas.lt
             </div>
@@ -172,7 +421,7 @@
         
         <div class="info-box">
             <p class="coming-soon">🚀 Serveris kurimo stadyjoje...</p>
-            <p>Kuriame nuostabią Minecraft serverio patirtį.</p>
+            <p>Kuriame nuostabią Minecraft serverio patirtį su draugais ir bendruomene.</p>
             <p style="margin-top: 15px; font-size: 0.95em; color: #ccc;">Daugiau informacijos netrukus!</p>
             
             <a href="https://discord.com/invite/nm2MjNC" class="discord-btn" target="_blank">
@@ -184,7 +433,7 @@
         </div>
         
         <div class="footer">
-            <p>Sekite mūsų atnaujinimus...</p>
+            <p>🎲 Sekite mūsų atnaujinimus...</p>
         </div>
     </div>
     
