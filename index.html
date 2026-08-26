@@ -32,7 +32,7 @@
             align-items: center;
             padding: 20px;
             overflow-x: hidden;
-            gap: 20px;
+            gap: 40px;
         }
         
         body::before {
@@ -201,16 +201,16 @@
         /* Main wrapper */
         .main-wrapper {
             display: flex;
-            gap: 20px;
+            gap: 40px;
             width: 100%;
             position: relative;
             z-index: 1;
-            max-width: 1200px;
+            max-width: 1400px;
         }
         
-        /* Left section - Title */
+        /* Left section - Title and Subtitle */
         .left-section {
-            flex: 0 0 450px;
+            flex: 0 0 400px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -218,13 +218,13 @@
         }
         
         .title-container {
-            text-align: center;
+            text-align: left;
         }
         
         .title-wrapper {
             perspective: 1000px;
             animation: slideInDown 1s ease-out;
-            margin-bottom: 5px;
+            margin-bottom: 30px;
         }
         
         h1 {
@@ -235,19 +235,12 @@
             animation: subtleGlow 3s ease-in-out infinite;
             letter-spacing: 3px;
             filter: drop-shadow(2px 2px 0px rgba(78, 204, 163, 0.2));
-        }
-        
-        .divider {
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #4ecca3, #5cb85c, #4ecca3, transparent);
-            margin: 20px 0;
-            animation: slideInUp 0.8s ease-out 0.2s both;
+            line-height: 1.2;
         }
         
         .subtitle-wrapper {
             position: relative;
             margin-top: 20px;
-            margin-bottom: 30px;
         }
         
         .subtitle {
@@ -263,9 +256,9 @@
                 2px 2px 0px rgba(255, 215, 0, 0.15);
         }
         
-        /* Right section - Info */
+        /* Right section - Info Box */
         .right-section {
-            flex: 0 0 400px;
+            flex: 0 0 500px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -334,7 +327,7 @@
             border: 3px solid #5cb85c;
             border-radius: 0px;
             padding: 40px;
-            margin: 30px 0;
+            margin: 0;
             box-shadow: 
                 0 10px 40px rgba(92, 184, 92, 0.2),
                 inset 0 0 20px rgba(92, 184, 92, 0.1);
@@ -412,7 +405,7 @@
             border: 3px solid #4ecca3;
             border-radius: 0px;
             padding: 35px;
-            margin: 30px 0;
+            margin: 30px 0 0 0;
             animation: slideInUp 1.2s ease-out;
             position: relative;
             overflow: hidden;
@@ -514,11 +507,16 @@
             .main-wrapper {
                 flex-direction: column;
                 max-width: 500px;
+                gap: 20px;
             }
             
             .left-section,
             .right-section {
                 flex: 1;
+            }
+            
+            .title-container {
+                text-align: center;
             }
             
             h1 {
@@ -566,8 +564,6 @@
                     <h1>NPrinco<br>Hata</h1>
                 </div>
                 
-                <div class="divider"></div>
-                
                 <div class="subtitle-wrapper">
                     <div class="subtitle">Minecraft Serveris</div>
                 </div>
@@ -577,6 +573,16 @@
         <!-- RIGHT SECTION -->
         <div class="right-section">
             <div class="container">
+                <div class="ip-section">
+                    <h2 class="section-title">📍 Serverio Adresas</h2>
+                    <div class="server-ip-container">
+                        <div class="server-ip" onclick="copyToClipboard('mc.nprincas.lt')">
+                            mc.nprincas.lt
+                        </div>
+                        <p class="copy-hint">💡 Spausk norėdamas nukopijuoti adresą</p>
+                    </div>
+                </div>
+                
                 <div class="info-box">
                     <p class="coming-soon">🚀 Serveris kurimo stadyjoje...</p>
                     <p>Kuriame nuostabią Minecraft serverio patirtį su draugais ir bendruomene.</p>
