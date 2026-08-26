@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            perspective: 1000px;
         }
         
         html {
@@ -61,74 +62,108 @@
             background-size: 50px 50px;
         }
         
-        /* Animacijos */
+        /* ANIMATIONS */
         @keyframes slideInDown {
             from {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(-50px) rotateX(45deg);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) rotateX(0deg);
             }
         }
         
         @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(50px) rotateX(-45deg);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) rotateX(0deg);
             }
         }
         
         @keyframes slideInLeft {
             from {
                 opacity: 0;
-                transform: translateX(-50px);
+                transform: translateX(-50px) rotateY(45deg);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateX(0) rotateY(0deg);
             }
         }
         
-        @keyframes subtleGlow {
+        @keyframes floatingY {
             0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @keyframes floatingX {
+            0%, 100% {
+                transform: translateX(0px);
+            }
+            25% {
+                transform: translateX(-8px);
+            }
+            75% {
+                transform: translateX(8px);
+            }
+        }
+        
+        @keyframes rotateGlow {
+            0%, 100% {
+                transform: rotate(0deg) scale(1);
                 text-shadow: 
                     0 0 5px #4ecca3,
                     0 0 10px #4ecca3;
                 color: #4ecca3;
             }
             50% {
+                transform: rotate(2deg) scale(1.02);
                 text-shadow: 
-                    0 0 8px #4ecca3,
-                    0 0 12px #5cb85c;
+                    0 0 15px #4ecca3,
+                    0 0 25px #5cb85c;
                 color: #5cb85c;
             }
         }
         
-        @keyframes tinyPulse {
+        @keyframes tilt3D {
             0%, 100% {
-                text-shadow: 
-                    0 0 5px #4ecca3,
-                    0 0 10px #4ecca3;
+                transform: rotateX(2deg) rotateY(-2deg) rotateZ(1deg);
             }
             50% {
-                text-shadow: 
-                    0 0 8px #4ecca3,
-                    0 0 15px #5cb85c;
+                transform: rotateX(-2deg) rotateY(2deg) rotateZ(-1deg);
             }
         }
         
-        @keyframes slowPulse {
+        @keyframes pulseGlow {
             0%, 100% {
-                transform: scale(1);
+                box-shadow: 
+                    0 20px 60px rgba(78, 204, 163, 0.2),
+                    inset 0 0 30px rgba(78, 204, 163, 0.1);
             }
             50% {
-                transform: scale(1.01);
+                box-shadow: 
+                    0 30px 80px rgba(78, 204, 163, 0.4),
+                    inset 0 0 40px rgba(78, 204, 163, 0.2);
+            }
+        }
+        
+        @keyframes shimmer {
+            0%, 100% {
+                opacity: 0.9;
+                filter: brightness(1);
+            }
+            50% {
+                opacity: 1;
+                filter: brightness(1.1);
             }
         }
         
@@ -171,6 +206,19 @@
             }
         }
         
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(50px);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1) translateY(0);
+            }
+        }
+        
         /* Particle System */
         .particles {
             position: fixed;
@@ -190,6 +238,7 @@
             opacity: 0.8;
             animation: particleFloat 3s ease-out forwards;
             box-shadow: 0 0 10px #4ecca3;
+            border-radius: 50%;
         }
         
         .particle:nth-child(odd) {
@@ -229,11 +278,13 @@
             font-size: 4.2em;
             margin-bottom: 0px;
             color: #4ecca3;
-            animation: subtleGlow 3s ease-in-out infinite;
+            animation: rotateGlow 3s ease-in-out infinite, floatingY 4s ease-in-out infinite;
             letter-spacing: 2px;
             filter: drop-shadow(3px 3px 0px rgba(78, 204, 163, 0.3));
             line-height: 1;
             font-weight: 700;
+            display: inline-block;
+            transform-style: preserve-3d;
         }
         
         /* Info Box */
@@ -242,10 +293,11 @@
             border: 3px solid #4ecca3;
             border-radius: 0px;
             padding: 26px;
-            animation: slideInUp 1.2s ease-out;
+            animation: slideInUp 1.2s ease-out, bounceIn 1.5s ease-out, tilt3D 4s ease-in-out infinite;
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(5px);
+            transform-style: preserve-3d;
         }
         
         .info-box::after {
@@ -263,6 +315,7 @@
                 transparent 4px
             );
             pointer-events: none;
+            animation: shimmer 3s ease-in-out infinite;
         }
         
         .info-box p {
@@ -280,7 +333,7 @@
             color: #ffd700;
             margin: 11px 0;
             font-weight: 700;
-            animation: slowPulse 2s ease-in-out infinite;
+            animation: floatingX 3s ease-in-out infinite;
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 
@@ -294,12 +347,10 @@
             border: 4px solid #4ecca3;
             border-radius: 0px;
             padding: 26px;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.6),
-                inset 0 0 30px rgba(78, 204, 163, 0.15);
-            animation: slideInUp 0.8s ease-out;
+            animation: slideInUp 0.8s ease-out, bounceIn 1.2s ease-out 0.2s both, pulseGlow 3s ease-in-out infinite;
             backdrop-filter: blur(8px);
             position: relative;
+            transform-style: preserve-3d;
         }
         
         .minecraft-box::before {
@@ -314,6 +365,7 @@
             border-radius: 0px;
             z-index: -1;
             opacity: 0.2;
+            animation: shimmer 2s ease-in-out infinite;
         }
         
         .minecraft-box::after {
@@ -335,7 +387,7 @@
             font-size: 1.85em;
             color: #ffd700;
             font-weight: 700;
-            animation: textReveal 1s ease-out both, tinyPulse 3s ease-in-out infinite 1s;
+            animation: textReveal 1s ease-out both, floatingY 3.5s ease-in-out infinite 0.5s;
             letter-spacing: 2px;
             text-transform: uppercase;
             text-shadow: 
@@ -350,12 +402,10 @@
             border: 3px solid #5cb85c;
             border-radius: 0px;
             padding: 18px;
-            box-shadow: 
-                0 10px 40px rgba(92, 184, 92, 0.2),
-                inset 0 0 20px rgba(92, 184, 92, 0.1);
-            animation: slideInUp 1s ease-out;
+            animation: slideInUp 1s ease-out, tilt3D 5s ease-in-out infinite;
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
         }
         
         .ip-section h2 {
@@ -394,7 +444,7 @@
             box-shadow: 
                 0 8px 25px rgba(78, 204, 163, 0.2),
                 inset 0 0 15px rgba(78, 204, 163, 0.08);
-            animation: slideInUp 1.2s ease-out;
+            animation: slideInUp 1.2s ease-out, shimmer 2.5s ease-in-out infinite;
         }
         
         .server-ip:hover {
@@ -434,10 +484,23 @@
             border: 2px solid #4ecca3;
             border-radius: 0px;
             padding: 8px;
-            animation: floatIn 1.3s ease-out;
+            animation: bounceIn 1.5s ease-out;
             position: relative;
             z-index: 1;
             text-align: center;
+            transform-style: preserve-3d;
+        }
+        
+        .info-item:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+        
+        .info-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        
+        .info-item:nth-child(3) {
+            animation-delay: 0.5s;
         }
         
         .info-item-label {
@@ -478,10 +541,11 @@
             overflow: hidden;
             text-transform: uppercase;
             letter-spacing: 2px;
-            animation: slideInUp 1.3s ease-out;
+            animation: slideInUp 1.3s ease-out, bounceIn 1.5s ease-out 0.4s both;
             box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
             width: 100%;
             justify-content: center;
+            transform-style: preserve-3d;
         }
         
         .discord-btn:hover {
@@ -513,47 +577,43 @@
             min-width: 200px;
         }
         
-        /* Hidden Blur Buttons */
+        /* Hidden Blur Buttons - ON SCREEN */
         .hidden-btn {
             position: fixed;
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 0, 0, 0.02);
-            border: 1.5px solid rgba(255, 0, 0, 0.08);
-            border-radius: 6px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 0, 0, 0.01);
+            border: 1px solid rgba(255, 0, 0, 0.05);
+            border-radius: 4px;
             cursor: pointer;
             transition: all 0.2s ease;
-            backdrop-filter: blur(3px);
-            z-index: 5;
+            backdrop-filter: blur(2px);
+            z-index: 50;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.6em;
-            color: rgba(255, 0, 0, 0.1);
-            font-weight: bold;
-            text-align: center;
-            padding: 4px;
-            box-sizing: border-box;
         }
         
         .hidden-btn:hover {
-            background: rgba(255, 0, 0, 0.05);
-            border-color: rgba(255, 0, 0, 0.12);
-            transform: scale(1.08);
+            background: rgba(255, 0, 0, 0.03);
+            border-color: rgba(255, 0, 0, 0.08);
+            transform: scale(1.1);
         }
         
         .hidden-btn:active {
-            transform: scale(0.92);
+            transform: scale(0.9);
         }
         
         .hidden-btn-left {
-            left: 20%;
-            top: 45%;
+            left: 28%;
+            top: 48%;
+            animation: floatingY 4s ease-in-out infinite, slideInUp 1s ease-out;
         }
         
         .hidden-btn-right {
-            right: 20%;
-            top: 45%;
+            right: 28%;
+            top: 48%;
+            animation: floatingY 4s ease-in-out infinite 0.2s, slideInUp 1s ease-out;
         }
         
         /* Responsive */
@@ -641,14 +701,14 @@
             </a>
         </div>
         
-        <!-- Right spacer (for girl image) -->
+        <!-- Right spacer -->
         <div class="right-spacer"></div>
     </div>
     
     <script>
         function createParticles() {
             const container = document.getElementById('particles');
-            for (let i = 0; i < 2; i++) {
+            for (let i = 0; i < 3; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
@@ -666,12 +726,13 @@
         
         window.addEventListener('load', () => {
             createParticles();
+            setInterval(createParticles, 4000);
         });
         
         let lastParticleTime = 0;
         document.addEventListener('mousemove', (e) => {
             const now = Date.now();
-            if (now - lastParticleTime > 200 && Math.random() > 0.9) {
+            if (now - lastParticleTime > 150 && Math.random() > 0.85) {
                 lastParticleTime = now;
                 const particle = document.createElement('div');
                 particle.className = 'particle';
