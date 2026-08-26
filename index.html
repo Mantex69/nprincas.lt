@@ -511,6 +511,52 @@
             position: relative;
             z-index: 1;
             min-width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Hidden Blur Buttons */
+        .hidden-btn {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 0, 0, 0.05);
+            border: 2px solid rgba(255, 0, 0, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(8px);
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            color: rgba(255, 0, 0, 0.15);
+            font-weight: bold;
+            text-align: center;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        
+        .hidden-btn:hover {
+            background: rgba(255, 0, 0, 0.08);
+            border-color: rgba(255, 0, 0, 0.15);
+            transform: scale(1.05);
+        }
+        
+        .hidden-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .hidden-btn-left {
+            left: 150px;
+            top: 450px;
+        }
+        
+        .hidden-btn-right {
+            right: 150px;
+            top: 450px;
         }
         
         /* Responsive */
@@ -528,12 +574,21 @@
             h1 {
                 font-size: 2.8em;
             }
+            
+            .hidden-btn-left,
+            .hidden-btn-right {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
     <div class="particles" id="particles"></div>
     <div class="block-grid"></div>
+    
+    <!-- Hidden Blur Buttons -->
+    <button class="hidden-btn hidden-btn-left" onclick="showMessage1()"></button>
+    <button class="hidden-btn hidden-btn-right" onclick="showMessage2()"></button>
     
     <div class="main-wrapper">
         <!-- LEFT SECTION -->
@@ -642,6 +697,14 @@
             }).catch(() => {
                 alert('⚠️ Nepavyko nukopijuoti');
             });
+        }
+        
+        function showMessage1() {
+            alert('Galimai paspaudei kur nereikia :D');
+        }
+        
+        function showMessage2() {
+            alert('Uoj tu mažas iškripelį.... Baiiiik :)');
         }
     </script>
 </body>
