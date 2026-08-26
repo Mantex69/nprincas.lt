@@ -41,7 +41,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(15, 15, 30, 0.4) 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(15, 15, 30, 0.25) 100%);
             pointer-events: none;
             z-index: -1;
         }
@@ -93,9 +93,22 @@
             }
             50% {
                 text-shadow: 
-                    0 0 10px #4ecca3,
-                    0 0 15px #5cb85c;
+                    0 0 8px #4ecca3,
+                    0 0 12px #5cb85c;
                 color: #5cb85c;
+            }
+        }
+        
+        @keyframes tinyPulse {
+            0%, 100% {
+                text-shadow: 
+                    0 0 5px #4ecca3,
+                    0 0 10px #4ecca3;
+            }
+            50% {
+                text-shadow: 
+                    0 0 8px #4ecca3,
+                    0 0 15px #5cb85c;
             }
         }
         
@@ -104,7 +117,7 @@
                 transform: scale(1);
             }
             50% {
-                transform: scale(1.02);
+                transform: scale(1.01);
             }
         }
         
@@ -133,15 +146,6 @@
             100% {
                 opacity: 1;
                 transform: scaleY(1) rotateX(0deg);
-            }
-        }
-        
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.03);
             }
         }
         
@@ -261,7 +265,7 @@
             font-size: 1.8em;
             color: #ffd700;
             font-weight: 700;
-            animation: textReveal 1s ease-out 0.3s both;
+            animation: textReveal 1s ease-out 0.3s both, tinyPulse 3s ease-in-out infinite 1.3s;
             letter-spacing: 2px;
             text-transform: uppercase;
             text-shadow: 
@@ -333,6 +337,7 @@
             box-shadow: 
                 0 8px 25px rgba(78, 204, 163, 0.2),
                 inset 0 0 15px rgba(78, 204, 163, 0.08);
+            animation: slideInUp 1.2s ease-out;
         }
         
         .server-ip:hover {
@@ -340,12 +345,12 @@
             box-shadow: 
                 0 15px 40px rgba(78, 204, 163, 0.4),
                 inset 0 0 20px rgba(78, 204, 163, 0.15);
-            transform: translateY(-5px);
+            transform: scale(1.02);
             border-color: #5cb85c;
         }
         
         .server-ip:active {
-            transform: translateY(-2px);
+            transform: scale(0.98);
         }
         
         .copy-hint {
@@ -441,12 +446,12 @@
             box-shadow: 
                 0 20px 45px rgba(88, 101, 242, 0.5),
                 inset 0 0 15px rgba(88, 101, 242, 0.2);
-            transform: translateY(-6px);
+            transform: scale(1.05);
             border-color: #fff;
         }
         
         .discord-btn:active {
-            transform: translateY(-2px);
+            transform: scale(0.98);
         }
         
         .discord-btn svg {
@@ -549,7 +554,7 @@
         // Optimized particle system
         function createParticles() {
             const container = document.getElementById('particles');
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < 2; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
@@ -570,20 +575,20 @@
             createParticles();
         });
         
-        // Reduced mouse move particles
+        // Minimal mouse move particles
         let lastParticleTime = 0;
         document.addEventListener('mousemove', (e) => {
             const now = Date.now();
-            if (now - lastParticleTime > 150 && Math.random() > 0.85) {
+            if (now - lastParticleTime > 200 && Math.random() > 0.9) {
                 lastParticleTime = now;
                 const particle = document.createElement('div');
                 particle.className = 'particle';
-                particle.style.left = (e.clientX + Math.random() * 30 - 15) + 'px';
-                particle.style.top = (e.clientY + Math.random() * 30 - 15) + 'px';
+                particle.style.left = (e.clientX + Math.random() * 20 - 10) + 'px';
+                particle.style.top = (e.clientY + Math.random() * 20 - 10) + 'px';
                 particle.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
                 particle.style.width = (Math.random() * 4 + 2) + 'px';
                 particle.style.height = particle.style.width;
-                container.appendChild(particle);
+                document.getElementById('particles').appendChild(particle);
                 
                 setTimeout(() => {
                     particle.remove();
@@ -597,7 +602,7 @@
                 
                 // Minimal particle explosion on copy
                 const container = document.getElementById('particles');
-                for (let i = 0; i < 3; i++) {
+                for (let i = 0; i < 2; i++) {
                     const particle = document.createElement('div');
                     particle.className = 'particle';
                     particle.style.left = '50%';
