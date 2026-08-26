@@ -28,11 +28,8 @@
             color: #fff;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
             overflow-x: hidden;
-            gap: 40px;
         }
         
         body::before {
@@ -82,17 +79,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-        
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
             }
         }
         
@@ -212,33 +198,29 @@
         /* Main wrapper */
         .main-wrapper {
             display: flex;
-            gap: 60px;
-            width: 100%;
             position: relative;
             z-index: 1;
-            max-width: 1200px;
-            align-items: center;
-            justify-content: center;
+            width: 100%;
+            gap: 40px;
+            align-items: flex-start;
+            justify-content: flex-start;
         }
         
-        /* Left section - Title + Info Box */
+        /* Left section - Title + Minecraft + Discord */
         .left-section {
-            flex: 0 0 300px;
+            flex: 0 0 auto;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            gap: 30px;
+            gap: 25px;
             animation: slideInLeft 0.8s ease-out;
-        }
-        
-        .title-container {
-            text-align: left;
+            padding-left: 40px;
+            max-width: 400px;
         }
         
         .title-wrapper {
             perspective: 1000px;
             animation: slideInDown 1s ease-out;
-            margin-bottom: 0px;
         }
         
         h1 {
@@ -254,145 +236,21 @@
             font-weight: 700;
         }
         
-        /* Info Box */
-        .info-box {
-            background: linear-gradient(135deg, rgba(78, 204, 163, 0.1) 0%, rgba(92, 184, 92, 0.08) 100%);
-            border: 3px solid #4ecca3;
-            border-radius: 0px;
-            padding: 20px;
-            animation: slideInUp 1.2s ease-out;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(5px);
-        }
-        
-        .info-box::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                rgba(78, 204, 163, 0.02) 0px,
-                rgba(78, 204, 163, 0.02) 2px,
-                transparent 2px,
-                transparent 4px
-            );
-            pointer-events: none;
-        }
-        
-        .info-box p {
-            margin: 10px 0;
-            font-size: 0.9em;
-            line-height: 1.6;
-            position: relative;
-            z-index: 1;
-            animation: floatIn 1.3s ease-out;
-        }
-        
-        .coming-soon {
-            font-family: 'Minecraftia', cursive;
-            font-size: 1.1em;
-            color: #ffd700;
-            margin: 10px 0;
-            font-weight: 700;
-            animation: slowPulse 2s ease-in-out infinite;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 
-                0 0 8px rgba(255, 215, 0, 0.3),
-                2px 2px 0px rgba(255, 215, 0, 0.15);
-        }
-        
-        .discord-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 15px;
-            padding: 12px 25px;
-            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 0px;
-            font-family: 'Minecraftia', cursive;
-            font-weight: 700;
-            transition: all 0.3s ease-out;
-            font-size: 0.85em;
-            border: 3px solid #5865F2;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: slideInUp 1.3s ease-out;
-            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
-        }
-        
-        .discord-btn:hover {
-            background: linear-gradient(135deg, #4752C4 0%, #5865F2 100%);
-            box-shadow: 
-                0 20px 45px rgba(88, 101, 242, 0.5),
-                inset 0 0 15px rgba(88, 101, 242, 0.2);
-            transform: scale(1.05);
-            border-color: #fff;
-        }
-        
-        .discord-btn:active {
-            transform: scale(0.98);
-        }
-        
-        .discord-btn svg {
-            margin-right: 8px;
-            vertical-align: middle;
-            width: 18px;
-            height: 18px;
-            z-index: 1;
-        }
-        
-        /* Right section - Minecraft Serveris + IP */
-        .right-section {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            gap: 15px;
-            animation: slideInRight 0.8s ease-out;
-            max-width: 600px;
-        }
-        
-        .minecraft-title {
-            font-family: 'Minecraftia', cursive;
-            font-size: 1.8em;
-            color: #ffd700;
-            font-weight: 700;
-            animation: textReveal 1s ease-out both, tinyPulse 3s ease-in-out infinite 1s;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-shadow: 
-                0 0 8px rgba(255, 215, 0, 0.4),
-                2px 2px 0px rgba(255, 215, 0, 0.15);
-            margin-bottom: 5px;
-            text-align: center;
-        }
-        
-        .container {
-            text-align: center;
-            padding: 20px;
+        /* Minecraft Server Box */
+        .minecraft-box {
             background: linear-gradient(135deg, rgba(22, 33, 62, 0.35) 0%, rgba(26, 26, 46, 0.35) 100%);
             border: 4px solid #4ecca3;
             border-radius: 0px;
+            padding: 20px;
             box-shadow: 
                 0 20px 60px rgba(0, 0, 0, 0.6),
                 inset 0 0 30px rgba(78, 204, 163, 0.15);
-            position: relative;
-            z-index: 1;
-            animation: slideInRight 0.8s ease-out;
+            animation: slideInUp 0.8s ease-out;
             backdrop-filter: blur(8px);
+            position: relative;
         }
         
-        .container::before {
+        .minecraft-box::before {
             content: '';
             position: absolute;
             top: -4px;
@@ -406,7 +264,7 @@
             opacity: 0.2;
         }
         
-        .container::after {
+        .minecraft-box::after {
             content: '';
             position: absolute;
             top: -8px;
@@ -420,12 +278,26 @@
             filter: blur(5px);
         }
         
+        .minecraft-title {
+            font-family: 'Minecraftia', cursive;
+            font-size: 1.6em;
+            color: #ffd700;
+            font-weight: 700;
+            animation: textReveal 1s ease-out both, tinyPulse 3s ease-in-out infinite 1s;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 8px rgba(255, 215, 0, 0.4),
+                2px 2px 0px rgba(255, 215, 0, 0.15);
+            margin-bottom: 15px;
+        }
+        
         /* IP Address Section */
         .ip-section {
             background: linear-gradient(135deg, rgba(92, 184, 92, 0.15) 0%, rgba(78, 204, 163, 0.1) 100%);
             border: 3px solid #5cb85c;
             border-radius: 0px;
-            padding: 18px;
+            padding: 15px;
             box-shadow: 
                 0 10px 40px rgba(92, 184, 92, 0.2),
                 inset 0 0 20px rgba(92, 184, 92, 0.1);
@@ -436,8 +308,8 @@
         
         .ip-section h2 {
             color: #5cb85c;
-            font-size: 1.1em;
-            margin-bottom: 10px;
+            font-size: 1em;
+            margin-bottom: 8px;
             font-weight: 700;
             animation: slideInDown 0.6s ease-out;
             text-shadow: 
@@ -454,13 +326,13 @@
         
         .server-ip {
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.3) 100%);
-            padding: 15px 18px;
+            padding: 12px 15px;
             border-radius: 0px;
             font-family: 'Minecraftia', cursive;
-            font-size: 1.2em;
+            font-size: 1.1em;
             color: #4ecca3;
             word-break: break-all;
-            margin: 10px 0;
+            margin: 8px 0;
             cursor: pointer;
             transition: all 0.3s ease-out;
             border: 3px solid #4ecca3;
@@ -487,9 +359,9 @@
         }
         
         .copy-hint {
-            font-size: 0.75em;
+            font-size: 0.7em;
             color: #aaa;
-            margin-top: 6px;
+            margin-top: 4px;
             font-weight: 600;
             animation: floatIn 1.2s ease-out 0.2s both;
             letter-spacing: 0.5px;
@@ -497,19 +369,19 @@
             z-index: 1;
         }
         
-        /* Server Info Grid - HORIZONTAL */
+        /* Server Info Grid */
         .server-info {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 6px;
+            margin-top: 8px;
         }
         
         .info-item {
             background: linear-gradient(135deg, rgba(78, 204, 163, 0.1) 0%, rgba(92, 184, 92, 0.08) 100%);
             border: 2px solid #4ecca3;
             border-radius: 0px;
-            padding: 8px;
+            padding: 6px;
             animation: floatIn 1.3s ease-out;
             position: relative;
             z-index: 1;
@@ -517,76 +389,96 @@
         }
         
         .info-item-label {
-            font-size: 0.65em;
+            font-size: 0.6em;
             color: #5cb85c;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
             animation: slideInDown 0.6s ease-out;
         }
         
         .info-item-value {
             font-family: 'Minecraftia', cursive;
-            font-size: 0.8em;
+            font-size: 0.75em;
             color: #4ecca3;
             font-weight: 700;
             animation: slideInUp 0.8s ease-out;
         }
         
+        /* Discord Button */
+        .discord-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 0px;
+            font-family: 'Minecraftia', cursive;
+            font-weight: 700;
+            transition: all 0.3s ease-out;
+            font-size: 0.85em;
+            border: 3px solid #5865F2;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: slideInUp 1.3s ease-out;
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .discord-btn:hover {
+            background: linear-gradient(135deg, #4752C4 0%, #5865F2 100%);
+            box-shadow: 
+                0 20px 45px rgba(88, 101, 242, 0.5),
+                inset 0 0 15px rgba(88, 101, 242, 0.2);
+            transform: scale(1.05);
+            border-color: #fff;
+        }
+        
+        .discord-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .discord-btn svg {
+            margin-right: 8px;
+            vertical-align: middle;
+            width: 18px;
+            height: 18px;
+            z-index: 1;
+        }
+        
+        /* Right side spacer */
+        .right-spacer {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+        
         /* Responsive */
         @media (max-width: 1024px) {
-            body {
-                justify-content: center;
-                flex-direction: column;
-            }
-            
             .main-wrapper {
                 flex-direction: column;
-                max-width: 500px;
-                gap: 20px;
-            }
-            
-            .left-section,
-            .right-section {
-                flex: 1;
-                max-width: 100%;
+                justify-content: flex-start;
             }
             
             .left-section {
-                animation: slideInDown 0.8s ease-out;
-            }
-            
-            .title-container {
-                text-align: center;
+                padding-left: 20px;
+                max-width: 100%;
             }
             
             h1 {
-                font-size: 3em;
+                font-size: 2.8em;
                 white-space: normal;
             }
             
             .minecraft-title {
-                font-size: 1.5em;
-            }
-            
-            .container {
-                padding: 20px;
-                border-width: 3px;
-            }
-            
-            .server-ip {
-                font-size: 1.1em;
-                padding: 12px 15px;
-            }
-            
-            .ip-section {
-                padding: 15px;
-            }
-            
-            .discord-btn {
-                font-size: 0.9em;
-                padding: 12px 25px;
+                font-size: 1.4em;
             }
         }
     </style>
@@ -598,31 +490,15 @@
     <div class="main-wrapper">
         <!-- LEFT SECTION -->
         <div class="left-section">
-            <div class="title-container">
-                <div class="title-wrapper">
-                    <h1>NPrinco Hata</h1>
-                </div>
+            <!-- Title -->
+            <div class="title-wrapper">
+                <h1>NPrinco Hata</h1>
             </div>
             
-            <div class="info-box">
-                <p class="coming-soon">🚀 Serveris kurimo stadyjoje...</p>
-                <p>Kuriame nuostabią Minecraft serverio patirtį su draugais ir bendruomene.</p>
-                <p style="margin-top: 10px; font-size: 0.85em; color: #ccc;">Netrukus turėsime dar daugiau nuostabių dalykų!</p>
+            <!-- Minecraft Server Box -->
+            <div class="minecraft-box">
+                <div class="minecraft-title">Minecraft Serveris</div>
                 
-                <a href="https://discord.com/invite/nm2MjNC" class="discord-btn" target="_blank">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.607 1.25a18.27 18.27 0 0 0-5.487 0c-.163-.386-.395-.875-.608-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.294.075.075 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.075.075 0 0 1 .079.009c.12.098.246.198.373.295a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-4.467.151-8.343-2.118-12.64a.06.06 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.93-2.157 2.157-2.157 1.226 0 2.157.964 2.157 2.157 0 1.19-.93 2.155-2.157 2.155zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.93-2.157 2.157-2.157 1.226 0 2.157.964 2.157 2.157 0 1.19-.931 2.155-2.157 2.155z"/>
-                    </svg>
-                    Prisijunk Discord
-                </a>
-            </div>
-        </div>
-        
-        <!-- RIGHT SECTION -->
-        <div class="right-section">
-            <div class="minecraft-title">Minecraft Serveris</div>
-            
-            <div class="container">
                 <div class="ip-section">
                     <h2>📍 Serverio Adresas</h2>
                     <div class="server-ip-container">
@@ -648,7 +524,18 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Discord Button -->
+            <a href="https://discord.com/invite/nm2MjNC" class="discord-btn" target="_blank">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.607 1.25a18.27 18.27 0 0 0-5.487 0c-.163-.386-.395-.875-.608-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.294.075.075 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.075.075 0 0 1 .079.009c.12.098.246.198.373.295a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-4.467.151-8.343-2.118-12.64a.06.06 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.93-2.157 2.157-2.157 1.226 0 2.157.964 2.157 2.157 0 1.19-.93 2.155-2.157 2.155zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.93-2.157 2.157-2.157 1.226 0 2.157.964 2.157 2.157 0 1.19-.931 2.155-2.157 2.155z"/>
+                </svg>
+                Prisijunk Discord
+            </a>
         </div>
+        
+        <!-- Right spacer (for girl image) -->
+        <div class="right-spacer"></div>
     </div>
     
     <script>
