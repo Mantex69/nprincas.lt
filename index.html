@@ -363,7 +363,7 @@
         
         .container {
             text-align: center;
-            padding: 35px 25px;
+            padding: 30px 20px;
             background: linear-gradient(135deg, rgba(22, 33, 62, 0.35) 0%, rgba(26, 26, 46, 0.35) 100%);
             border: 4px solid #4ecca3;
             border-radius: 0px;
@@ -409,7 +409,7 @@
             background: linear-gradient(135deg, rgba(92, 184, 92, 0.15) 0%, rgba(78, 204, 163, 0.1) 100%);
             border: 3px solid #5cb85c;
             border-radius: 0px;
-            padding: 30px;
+            padding: 25px;
             box-shadow: 
                 0 10px 40px rgba(92, 184, 92, 0.2),
                 inset 0 0 20px rgba(92, 184, 92, 0.1);
@@ -420,8 +420,8 @@
         
         .ip-section h2 {
             color: #5cb85c;
-            font-size: 1.5em;
-            margin-bottom: 15px;
+            font-size: 1.3em;
+            margin-bottom: 12px;
             font-weight: 700;
             animation: slideInDown 0.6s ease-out;
             text-shadow: 
@@ -438,13 +438,13 @@
         
         .server-ip {
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.3) 100%);
-            padding: 20px 25px;
+            padding: 18px 20px;
             border-radius: 0px;
             font-family: 'Minecraftia', cursive;
-            font-size: 1.6em;
+            font-size: 1.4em;
             color: #4ecca3;
             word-break: break-all;
-            margin: 15px 0;
+            margin: 12px 0;
             cursor: pointer;
             transition: all 0.3s ease-out;
             border: 3px solid #4ecca3;
@@ -471,9 +471,9 @@
         }
         
         .copy-hint {
-            font-size: 0.9em;
+            font-size: 0.85em;
             color: #aaa;
-            margin-top: 10px;
+            margin-top: 8px;
             font-weight: 600;
             animation: floatIn 1.2s ease-out 0.2s both;
             letter-spacing: 0.5px;
@@ -484,34 +484,34 @@
         /* Server Info Grid */
         .server-info {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
         }
         
         .info-item {
             background: linear-gradient(135deg, rgba(78, 204, 163, 0.1) 0%, rgba(92, 184, 92, 0.08) 100%);
             border: 2px solid #4ecca3;
             border-radius: 0px;
-            padding: 15px;
+            padding: 12px;
             animation: floatIn 1.3s ease-out;
             position: relative;
             z-index: 1;
         }
         
         .info-item-label {
-            font-size: 0.8em;
+            font-size: 0.7em;
             color: #5cb85c;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             animation: slideInDown 0.6s ease-out;
         }
         
         .info-item-value {
             font-family: 'Minecraftia', cursive;
-            font-size: 1.1em;
+            font-size: 0.95em;
             color: #4ecca3;
             font-weight: 700;
             animation: slideInUp 0.8s ease-out;
@@ -606,7 +606,7 @@
             
             <div class="container">
                 <div class="ip-section">
-                    <h2 class="ip-section__title" style="font-family: 'Minecraftia', cursive; font-size: 1.5em; color: #5cb85c; margin-bottom: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 0px rgba(92, 184, 92, 0.25), 4px 4px 0px rgba(92, 184, 92, 0.1);">📍 Serverio Adresas</h2>
+                    <h2 class="ip-section__title" style="font-family: 'Minecraftia', cursive; font-size: 1.3em; color: #5cb85c; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 0px rgba(92, 184, 92, 0.25), 4px 4px 0px rgba(92, 184, 92, 0.1);">📍 Serverio Adresas</h2>
                     <div class="server-ip-container">
                         <div class="server-ip" onclick="copyToClipboard('mc.nprincas.lt')">
                             mc.nprincas.lt
@@ -626,10 +626,6 @@
                         <div class="info-item">
                             <div class="info-item-label">👥 Talpa</div>
                             <div class="info-item-value">50 žaidėjų</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-item-label">🌐 IP</div>
-                            <div class="info-item-value">mc.nprincas.lt</div>
                         </div>
                     </div>
                 </div>
