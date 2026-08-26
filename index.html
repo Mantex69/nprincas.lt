@@ -208,7 +208,7 @@
             max-width: 1400px;
         }
         
-        /* Left section - Title, Subtitle, IP */
+        /* Left section - Title + Info Box */
         .left-section {
             flex: 0 0 450px;
             display: flex;
@@ -239,160 +239,12 @@
             line-height: 1.2;
         }
         
-        .subtitle-wrapper {
-            position: relative;
-            margin-top: 0px;
-        }
-        
-        .subtitle {
-            font-family: 'Minecraftia', cursive;
-            font-size: 1.8em;
-            color: #ffd700;
-            font-weight: 700;
-            animation: textReveal 1s ease-out 0.3s both, tinyPulse 3s ease-in-out infinite 1.3s;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-shadow: 
-                0 0 8px rgba(255, 215, 0, 0.4),
-                2px 2px 0px rgba(255, 215, 0, 0.15);
-        }
-        
-        /* IP Address Section */
-        .ip-section {
-            background: linear-gradient(135deg, rgba(92, 184, 92, 0.15) 0%, rgba(78, 204, 163, 0.1) 100%);
-            border: 3px solid #5cb85c;
-            border-radius: 0px;
-            padding: 40px;
-            box-shadow: 
-                0 10px 40px rgba(92, 184, 92, 0.2),
-                inset 0 0 20px rgba(92, 184, 92, 0.1);
-            animation: slideInUp 1s ease-out;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .ip-section h2 {
-            color: #5cb85c;
-            font-size: 2em;
-            margin-bottom: 20px;
-            font-weight: 700;
-            animation: slideInDown 0.6s ease-out;
-            text-shadow: 
-                2px 2px 0px rgba(92, 184, 92, 0.25),
-                4px 4px 0px rgba(92, 184, 92, 0.1);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .server-ip-container {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .server-ip {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.3) 100%);
-            padding: 25px 30px;
-            border-radius: 0px;
-            font-family: 'Minecraftia', cursive;
-            font-size: 2em;
-            color: #4ecca3;
-            word-break: break-all;
-            margin: 20px 0;
-            cursor: pointer;
-            transition: all 0.3s ease-out;
-            border: 3px solid #4ecca3;
-            font-weight: 700;
-            position: relative;
-            letter-spacing: 2px;
-            box-shadow: 
-                0 8px 25px rgba(78, 204, 163, 0.2),
-                inset 0 0 15px rgba(78, 204, 163, 0.08);
-            animation: slideInUp 1.2s ease-out;
-        }
-        
-        .server-ip:hover {
-            background: linear-gradient(135deg, rgba(78, 204, 163, 0.2) 0%, rgba(92, 184, 92, 0.15) 100%);
-            box-shadow: 
-                0 15px 40px rgba(78, 204, 163, 0.4),
-                inset 0 0 20px rgba(78, 204, 163, 0.15);
-            transform: scale(1.02);
-            border-color: #5cb85c;
-        }
-        
-        .server-ip:active {
-            transform: scale(0.98);
-        }
-        
-        .copy-hint {
-            font-size: 1.1em;
-            color: #aaa;
-            margin-top: 12px;
-            font-weight: 600;
-            animation: floatIn 1.2s ease-out 0.2s both;
-            letter-spacing: 0.5px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Right section - Info Box */
-        .right-section {
-            flex: 0 0 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            animation: slideInRight 0.8s ease-out;
-        }
-        
-        .container {
-            text-align: center;
-            padding: 50px 30px;
-            background: linear-gradient(135deg, rgba(22, 33, 62, 0.35) 0%, rgba(26, 26, 46, 0.35) 100%);
-            border: 4px solid #4ecca3;
-            border-radius: 0px;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.6),
-                inset 0 0 30px rgba(78, 204, 163, 0.15);
-            position: relative;
-            z-index: 1;
-            animation: slideInRight 0.8s ease-out;
-            backdrop-filter: blur(8px);
-        }
-        
-        .container::before {
-            content: '';
-            position: absolute;
-            top: -4px;
-            left: -4px;
-            right: -4px;
-            bottom: -4px;
-            background: linear-gradient(45deg, #4ecca3, #5cb85c, #4ecca3, #5cb85c);
-            background-size: 200% 200%;
-            border-radius: 0px;
-            z-index: -1;
-            opacity: 0.2;
-        }
-        
-        .container::after {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: -8px;
-            right: -8px;
-            bottom: -8px;
-            background: linear-gradient(45deg, #4ecca3, #5cb85c, #4ecca3);
-            border-radius: 0px;
-            z-index: -2;
-            opacity: 0.1;
-            filter: blur(5px);
-        }
-        
         /* Info Box */
         .info-box {
             background: linear-gradient(135deg, rgba(78, 204, 163, 0.1) 0%, rgba(92, 184, 92, 0.08) 100%);
             border: 3px solid #4ecca3;
             border-radius: 0px;
             padding: 35px;
-            margin: 0;
             animation: slideInUp 1.2s ease-out;
             position: relative;
             overflow: hidden;
@@ -484,6 +336,149 @@
             z-index: 1;
         }
         
+        /* Right section - Minecraft Serveris + IP */
+        .right-section {
+            flex: 0 0 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 20px;
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        .minecraft-title {
+            font-family: 'Minecraftia', cursive;
+            font-size: 2.5em;
+            color: #ffd700;
+            font-weight: 700;
+            animation: textReveal 1s ease-out both, tinyPulse 3s ease-in-out infinite 1s;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 8px rgba(255, 215, 0, 0.4),
+                2px 2px 0px rgba(255, 215, 0, 0.15);
+        }
+        
+        .container {
+            text-align: center;
+            padding: 50px 30px;
+            background: linear-gradient(135deg, rgba(22, 33, 62, 0.35) 0%, rgba(26, 26, 46, 0.35) 100%);
+            border: 4px solid #4ecca3;
+            border-radius: 0px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.6),
+                inset 0 0 30px rgba(78, 204, 163, 0.15);
+            position: relative;
+            z-index: 1;
+            animation: slideInRight 0.8s ease-out;
+            backdrop-filter: blur(8px);
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, #4ecca3, #5cb85c, #4ecca3, #5cb85c);
+            background-size: 200% 200%;
+            border-radius: 0px;
+            z-index: -1;
+            opacity: 0.2;
+        }
+        
+        .container::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            background: linear-gradient(45deg, #4ecca3, #5cb85c, #4ecca3);
+            border-radius: 0px;
+            z-index: -2;
+            opacity: 0.1;
+            filter: blur(5px);
+        }
+        
+        /* IP Address Section */
+        .ip-section {
+            background: linear-gradient(135deg, rgba(92, 184, 92, 0.15) 0%, rgba(78, 204, 163, 0.1) 100%);
+            border: 3px solid #5cb85c;
+            border-radius: 0px;
+            padding: 40px;
+            box-shadow: 
+                0 10px 40px rgba(92, 184, 92, 0.2),
+                inset 0 0 20px rgba(92, 184, 92, 0.1);
+            animation: slideInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ip-section h2 {
+            color: #5cb85c;
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            animation: slideInDown 0.6s ease-out;
+            text-shadow: 
+                2px 2px 0px rgba(92, 184, 92, 0.25),
+                4px 4px 0px rgba(92, 184, 92, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .server-ip-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .server-ip {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.3) 100%);
+            padding: 25px 30px;
+            border-radius: 0px;
+            font-family: 'Minecraftia', cursive;
+            font-size: 2em;
+            color: #4ecca3;
+            word-break: break-all;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: all 0.3s ease-out;
+            border: 3px solid #4ecca3;
+            font-weight: 700;
+            position: relative;
+            letter-spacing: 2px;
+            box-shadow: 
+                0 8px 25px rgba(78, 204, 163, 0.2),
+                inset 0 0 15px rgba(78, 204, 163, 0.08);
+            animation: slideInUp 1.2s ease-out;
+        }
+        
+        .server-ip:hover {
+            background: linear-gradient(135deg, rgba(78, 204, 163, 0.2) 0%, rgba(92, 184, 92, 0.15) 100%);
+            box-shadow: 
+                0 15px 40px rgba(78, 204, 163, 0.4),
+                inset 0 0 20px rgba(78, 204, 163, 0.15);
+            transform: scale(1.02);
+            border-color: #5cb85c;
+        }
+        
+        .server-ip:active {
+            transform: scale(0.98);
+        }
+        
+        .copy-hint {
+            font-size: 1.1em;
+            color: #aaa;
+            margin-top: 12px;
+            font-weight: 600;
+            animation: floatIn 1.2s ease-out 0.2s both;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+        
         /* Responsive */
         @media (max-width: 1024px) {
             body {
@@ -510,8 +505,8 @@
                 font-size: 3em;
             }
             
-            .subtitle {
-                font-size: 1.3em;
+            .minecraft-title {
+                font-size: 1.8em;
             }
             
             .container {
@@ -546,37 +541,35 @@
                 <div class="title-wrapper">
                     <h1>NPrinco<br>Hata</h1>
                 </div>
-                
-                <div class="subtitle-wrapper">
-                    <div class="subtitle">Minecraft Serveris</div>
-                </div>
             </div>
             
-            <div class="ip-section">
-                <h2 class="ip-section__title" style="font-family: 'Minecraftia', cursive; font-size: 1.8em; color: #5cb85c; margin-bottom: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 0px rgba(92, 184, 92, 0.25), 4px 4px 0px rgba(92, 184, 92, 0.1);">📍 Serverio Adresas</h2>
-                <div class="server-ip-container">
-                    <div class="server-ip" onclick="copyToClipboard('mc.nprincas.lt')">
-                        mc.nprincas.lt
-                    </div>
-                    <p class="copy-hint">💡 Spausk norėdamas nukopijuoti adresą</p>
-                </div>
+            <div class="info-box">
+                <p class="coming-soon">🚀 Serveris kurimo stadyjoje...</p>
+                <p>Kuriame nuostabią Minecraft serverio patirtį su draugais ir bendruomene.</p>
+                <p style="margin-top: 20px; font-size: 0.95em; color: #ccc;">Netrukus turėsime dar daugiau nuostabių dalykų!</p>
+                
+                <a href="https://discord.com/invite/nm2MjNC" class="discord-btn" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.607 1.25a18.27 18.27 0 0 0-5.487 0c-.163-.386-.395-.875-.608-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.294.075.075 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.075.075 0 0 1 .079.009c.12.098.246.198.373.295a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-4.467.151-8.343-2.118-12.64a.06.06 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.93-2.157 2.157-2.157 1.226 0 2.157.964 2.157 2.157 0 1.19-.93 2.155-2.157 2.155zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.93-2.157 2.157-2.157 1.226 0 2.157.964 2.157 2.157 0 1.19-.931 2.155-2.157 2.155z"/>
+                    </svg>
+                    Prisijunk prie Discord
+                </a>
             </div>
         </div>
         
         <!-- RIGHT SECTION -->
         <div class="right-section">
+            <div class="minecraft-title">Minecraft Serveris</div>
+            
             <div class="container">
-                <div class="info-box">
-                    <p class="coming-soon">🚀 Serveris kurimo stadyjoje...</p>
-                    <p>Kuriame nuostabią Minecraft serverio patirtį su draugais ir bendruomene.</p>
-                    <p style="margin-top: 20px; font-size: 0.95em; color: #ccc;">Netrukus turėsime dar daugiau nuostabių dalykų!</p>
-                    
-                    <a href="https://discord.com/invite/nm2MjNC" class="discord-btn" target="_blank">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.607 1.25a18.27 18.27 0 0 0-5.487 0c-.163-.386-.395-.875-.608-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.294.075.075 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.075.075 0 0 1 .079.009c.12.098.246.198.373.295a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-4.467.151-8.343-2.118-12.64a.06.06 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.93-2.157 2.157-2.157 1.226 0 2.157.964 2.157 2.157 0 1.19-.93 2.155-2.157 2.155zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.93-2.157 2.157-2.157 1.226 0 2.157.964 2.157 2.157 0 1.19-.931 2.155-2.157 2.155z"/>
-                        </svg>
-                        Prisijunk prie Discord
-                    </a>
+                <div class="ip-section">
+                    <h2 class="ip-section__title" style="font-family: 'Minecraftia', cursive; font-size: 1.8em; color: #5cb85c; margin-bottom: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 0px rgba(92, 184, 92, 0.25), 4px 4px 0px rgba(92, 184, 92, 0.1);">📍 Serverio Adresas</h2>
+                    <div class="server-ip-container">
+                        <div class="server-ip" onclick="copyToClipboard('mc.nprincas.lt')">
+                            mc.nprincas.lt
+                        </div>
+                        <p class="copy-hint">💡 Spausk norėdamas nukopijuoti adresą</p>
+                    </div>
                 </div>
             </div>
         </div>
