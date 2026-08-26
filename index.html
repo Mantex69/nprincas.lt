@@ -481,11 +481,11 @@
             z-index: 1;
         }
         
-        /* Server Info Grid */
+        /* Server Info Grid - VERTICAL */
         .server-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             margin-top: 15px;
         }
         
@@ -493,25 +493,28 @@
             background: linear-gradient(135deg, rgba(78, 204, 163, 0.1) 0%, rgba(92, 184, 92, 0.08) 100%);
             border: 2px solid #4ecca3;
             border-radius: 0px;
-            padding: 12px;
+            padding: 10px 12px;
             animation: floatIn 1.3s ease-out;
             position: relative;
             z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .info-item-label {
-            font-size: 0.7em;
+            font-size: 0.75em;
             color: #5cb85c;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 6px;
             animation: slideInDown 0.6s ease-out;
+            flex: 1;
         }
         
         .info-item-value {
             font-family: 'Minecraftia', cursive;
-            font-size: 0.95em;
+            font-size: 0.9em;
             color: #4ecca3;
             font-weight: 700;
             animation: slideInUp 0.8s ease-out;
@@ -560,10 +563,6 @@
             
             .ip-section {
                 padding: 20px;
-            }
-            
-            .server-info {
-                grid-template-columns: 1fr;
             }
             
             .discord-btn {
